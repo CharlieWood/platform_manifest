@@ -3,16 +3,19 @@
   <remote  name="korg"
            fetch="git://android.git.kernel.org/"
            review="review.source.android.com" />
+  <remote  name="imx5x"
+           fetch="git://github.com/CharlieWood/"
+           review="review.source.android.com" />
   <default revision="refs/tags/android-2.3.3_r1a"
            remote="korg" />
 
-  <project path="build" name="platform/build">
+  <project path="build" name="platform_build" remote="imx5x" revision="fsl_imx_r10.2" >
     <copyfile src="core/root.mk" dest="Makefile" />
   </project>
-  <project path="bionic" name="platform/bionic" />
+  <project path="bionic" name="platform_bionic" remote="imx5x" revision="fsl_imx_r10.2" />
   <project path="bootable/bootloader/legacy" name="platform/bootable/bootloader/legacy" />
   <project path="bootable/diskinstaller" name="platform/bootable/diskinstaller" />
-  <project path="bootable/recovery" name="platform/bootable/recovery" />
+  <project path="bootable/recovery" name="android_bootable_recovery" remote="imx5x" revision="fsl_imx_r10.2" />
   <project path="cts" name="platform/cts" />
   <project path="dalvik" name="platform/dalvik" />
   <project path="development" name="platform/development" />
@@ -38,7 +41,7 @@
   <project path="external/dhcpcd" name="platform/external/dhcpcd" />
   <project path="external/dnsmasq" name="platform/external/dnsmasq" />
   <project path="external/dropbear" name="platform/external/dropbear" />
-  <project path="external/e2fsprogs" name="platform/external/e2fsprogs" />
+  <project path="external/e2fsprogs" name="android_external_e2fsprogs" remote="imx5x" revision="fsl_imx_r10.2" />
   <project path="external/easymock" name="platform/external/easymock" />
   <project path="external/elfcopy" name="platform/external/elfcopy" />
   <project path="external/elfutils" name="platform/external/elfutils" />
@@ -49,7 +52,7 @@
   <project path="external/fdlibm" name="platform/external/fdlibm" />
   <project path="external/freetype" name="platform/external/freetype" />
   <project path="external/fsck_msdos" name="platform/external/fsck_msdos" />
-  <project path="external/genext2fs" name="platform/external/genext2fs" />
+  <project path="external/genext2fs" name="android_external_genext2fs" remote="imx5x" revision="fsl_imx_r10.2" />
   <project path="external/giflib" name="platform/external/giflib" />
   <project path="external/grub" name="platform/external/grub" />
   <project path="external/gtest" name="platform/external/gtest" />
@@ -105,12 +108,12 @@
   <project path="external/xmlwriter" name="platform/external/xmlwriter" />
   <project path="external/yaffs2" name="platform/external/yaffs2" />
   <project path="external/zlib" name="platform/external/zlib" />
-  <project path="frameworks/base" name="platform/frameworks/base" />
+  <project path="frameworks/base" name="platform_frameworks_base" remote="imx5x" revision="fsl_imx_r10.2" />
   <project path="frameworks/ex" name="platform/frameworks/ex" />
   <project path="frameworks/opt/emoji" name="platform/frameworks/opt/emoji" />
   <project path="hardware/broadcom/wlan" name="platform/hardware/broadcom/wlan" />
-  <project path="hardware/libhardware" name="platform/hardware/libhardware" />
-  <project path="hardware/libhardware_legacy" name="platform/hardware/libhardware_legacy" />
+  <project path="hardware/libhardware" name="platform_hardware_libhardware" remote="imx5x" revision="fsl_imx_r10.2" />
+  <project path="hardware/libhardware_legacy" name="android_hardware_libhardware_legacy" remote="imx5x" revision="fsl_imx_r10.2" />
   <project path="hardware/msm7k" name="platform/hardware/msm7k" />
   <project path="hardware/qcom/gps" name="platform/hardware/qcom/gps" />
   <project path="hardware/qcom/media" name="platform/hardware/qcom/media" />
@@ -124,7 +127,7 @@
   <project path="packages/apps/Browser" name="platform/packages/apps/Browser" />
   <project path="packages/apps/Calculator" name="platform/packages/apps/Calculator" />
   <project path="packages/apps/Calendar" name="platform/packages/apps/Calendar" />
-  <project path="packages/apps/Camera" name="platform/packages/apps/Camera" />
+  <project path="packages/apps/Camera" name="platform_packages_apps_camera" remote="imx5x" revision="fsl_imx_r10.2" />
   <project path="packages/apps/CertInstaller" name="platform/packages/apps/CertInstaller" />
   <project path="packages/apps/Contacts" name="platform/packages/apps/Contacts" />
   <project path="packages/apps/DeskClock" name="platform/packages/apps/DeskClock" />
@@ -141,8 +144,8 @@
   <project path="packages/apps/Protips" name="platform/packages/apps/Protips" />
   <project path="packages/apps/Provision" name="platform/packages/apps/Provision" />
   <project path="packages/apps/QuickSearchBox" name="platform/packages/apps/QuickSearchBox" />
-  <project path="packages/apps/Settings" name="platform/packages/apps/Settings" />
-  <project path="packages/apps/SoundRecorder" name="platform/packages/apps/SoundRecorder" />
+  <project path="packages/apps/Settings" name="platform_packages_apps_settings" remote="imx5x" revision="fsl_imx_r10.2" />
+  <project path="packages/apps/SoundRecorder" name="platform_packages_apps_soundrecorder" remote="imx5x" revision="fsl_imx_r10.2" />
   <project path="packages/apps/SpeechRecorder" name="platform/packages/apps/SpeechRecorder" />
   <project path="packages/apps/Stk" name="platform/packages/apps/Stk" />
   <project path="packages/apps/Tag" name="platform/packages/apps/Tag" />
@@ -157,21 +160,32 @@
   <project path="packages/providers/DownloadProvider" name="platform/packages/providers/DownloadProvider" />
   <project path="packages/providers/DrmProvider" name="platform/packages/providers/DrmProvider" />
   <project path="packages/providers/GoogleContactsProvider" name="platform/packages/providers/GoogleContactsProvider" />
-  <project path="packages/providers/MediaProvider" name="platform/packages/providers/MediaProvider" />
+  <project path="packages/providers/MediaProvider" name="platform_packages_providers_mediaprovider" remote="imx5x" revision="fsl_imx_r10.2" />
   <project path="packages/providers/TelephonyProvider" name="platform/packages/providers/TelephonyProvider" />
   <project path="packages/providers/UserDictionaryProvider" name="platform/packages/providers/UserDictionaryProvider" />
   <project path="packages/wallpapers/Basic" name="platform/packages/wallpapers/Basic" />
   <project path="packages/wallpapers/LivePicker" name="platform/packages/wallpapers/LivePicker" />
   <project path="packages/wallpapers/MagicSmoke" name="platform/packages/wallpapers/MagicSmoke" />
   <project path="packages/wallpapers/MusicVisualization" name="platform/packages/wallpapers/MusicVisualization" />
-  <project path="prebuilt" name="platform/prebuilt" />
+  <project path="prebuilt" name="platform_prebuilt" remote="imx5x" revision="fsl_imx_r10.2" />
   <project path="sdk" name="platform/sdk" />
   <project path="system/bluetooth" name="platform/system/bluetooth" />
-  <project path="system/core" name="platform/system/core" />
-  <project path="system/extras" name="platform/system/extras" />
+  <project path="system/core" name="platform_system_core" remote="imx5x" revision="fsl_imx_r10.2" />
+  <project path="system/extras" name="android_system_extras" remote="imx5x" revision="fsl_imx_r10.2" />
   <project path="system/media" name="platform/system/media" />
-  <project path="system/netd" name="platform/system/netd" />
-  <project path="system/vold" name="platform/system/vold" />
+  <project path="system/netd" name="android_system_netd" remote="imx5x" revision="fsl_imx_r10.2" />
+  <project path="system/vold" name="android_platform_system_vold" remote="imx5x" revision="fsl_imx_r10.2" />
   <project path="system/wlan/ti" name="platform/system/wlan/ti" />
+
+  <project path="external/alsa-lib" name="android_external_alsa-lib" remote="imx5x" revision="fsl_imx_r10.2" />
+  <project path="external/alsa-utils" name="android_external_alsa-utils" remote="imx5x" revision="fsl_imx_r10.2" />
+
+  <project path="external/linux-firmware-imx" name="imx_external_linux-firmware-imx" remote="imx5x" revision="fsl_imx_r10.2" />
+  <project path="external/linux-lib" name="imx_external_linux-lib" remote="imx5x" revision="fsl_imx_r10.2" />
+  <project path="hardware/mx5x" name="imx_hardware_mx5x" remote="imx5x" revision="fsl_imx_r10.2" />
+  <project path="device/fsl" name="imx_device_fsl" remote="imx5x" revision="fsl_imx_r10.2" />
+
+  <project path="bootable/bootloader/uboot-imx" name="uboot-imx" remote="imx5x" revision="fsl_imx_r10.2" />
+  <project path="kernel_imx" name="kernel_imx" remote="imx5x" revision="fsl_imx_r10.2" />
 
 </manifest>
