@@ -3,13 +3,16 @@
   <remote  name="korg"
            fetch="git://android.git.kernel.org/"
            review="review.source.android.com" />
+  <remote  name="qaep"
+           fetch="git://codeaurora.org/"
+           review="review.source.android.com" />
   <remote  name="imx5x"
            fetch="git://github.com/CharlieWood/"
            review="review.source.android.com" />
   <default revision="refs/tags/android-2.3.3_r1a"
            remote="korg" />
 
-  <project path="build" name="platform_build" remote="imx5x" revision="fsl_imx_r10.2" >
+  <project path="build" name="platform_build" remote="imx5x" revision="a10" >
     <copyfile src="core/root.mk" dest="Makefile" />
   </project>
   <project path="bionic" name="platform_bionic" remote="imx5x" revision="fsl_imx_r10.2" />
@@ -111,9 +114,9 @@
   <project path="frameworks/base" name="platform_frameworks_base" remote="imx5x" revision="fsl_imx_r10.2" />
   <project path="frameworks/ex" name="platform/frameworks/ex" />
   <project path="frameworks/opt/emoji" name="platform/frameworks/opt/emoji" />
-  <project path="hardware/broadcom/wlan" name="platform/hardware/broadcom/wlan" />
+  <project path="hardware/broadcom/wlan" name="platform_hardware_broadcom_wlan" remote="imx5x" revision="a10" />
   <project path="hardware/libhardware" name="platform_hardware_libhardware" remote="imx5x" revision="fsl_imx_r10.2" />
-  <project path="hardware/libhardware_legacy" name="android_hardware_libhardware_legacy" remote="imx5x" revision="fsl_imx_r10.2" />
+  <project path="hardware/libhardware_legacy" name="android_hardware_libhardware_legacy" remote="imx5x" revision="a10" />
   <project path="hardware/msm7k" name="platform/hardware/msm7k" />
   <project path="hardware/qcom/gps" name="platform/hardware/qcom/gps" />
   <project path="hardware/qcom/media" name="platform/hardware/qcom/media" />
@@ -181,11 +184,15 @@
   <project path="external/alsa-utils" name="android_external_alsa-utils" remote="imx5x" revision="fsl_imx_r10.2" />
 
   <project path="external/linux-firmware-imx" name="imx_external_linux-firmware-imx" remote="imx5x" revision="fsl_imx_r10.2" />
-  <project path="external/linux-lib" name="imx_external_linux-lib" remote="imx5x" revision="fsl_imx_r10.2" />
-  <project path="hardware/mx5x" name="imx_hardware_mx5x" remote="imx5x" revision="fsl_imx_r10.2" />
+  <project path="external/linux-lib" name="imx_external_linux-lib" remote="imx5x" revision="a10" />
+  <project path="hardware/mx5x" name="imx_hardware_mx5x" remote="imx5x" revision="a10" />
   <project path="device/fsl" name="imx_device_fsl" remote="imx5x" revision="fsl_imx_r10.2" />
+  <project path="device/imxdev" name="imx_device_imxdev" remote="imx5x" revision="a10" />
 
-  <project path="bootable/bootloader/uboot-imx" name="uboot-imx" remote="imx5x" revision="fsl_imx_r10.2" />
-  <project path="kernel_imx" name="kernel_imx" remote="imx5x" revision="fsl_imx_r10.2" />
+  <project path="bootable/bootloader/uboot-imx" name="uboot-imx" remote="imx5x" revision="a10" />
+  <project path="kernel_imx" name="kernel_imx" remote="imx5x" revision="a10" />
 
+  <project path="device/sdflashtool" name="imx_tools_sdflashtool" remote="imx5x" revision="master" />
+
+  <project path="vendor/google" name="vendor_gms" remote="imx5x" revision="master" />
 </manifest>
